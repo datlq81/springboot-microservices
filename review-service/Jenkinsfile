@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/datlq81/springboot-microservices.git', branch: 'develop'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'gradle assemble'
